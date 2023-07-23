@@ -10,4 +10,6 @@ public interface StudentDao {
     void updateStudent(Student student);
 
     void delete(Student student);
+
+    Student findById(long id);
 }

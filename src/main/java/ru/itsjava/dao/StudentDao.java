@@ -7,7 +7,7 @@ public interface StudentDao {
 
     void insert(Student student);
 
-    void updateStudent(Student student);
+    void update(Student student);
 
     void delete(Student student);
 

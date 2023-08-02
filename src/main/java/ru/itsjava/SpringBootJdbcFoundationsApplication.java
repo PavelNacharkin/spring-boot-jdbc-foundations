@@ -6,7 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import ru.itsjava.dao.StudentDao;
+import ru.itsjava.domain.Faculty;
 import ru.itsjava.domain.Student;
+import ru.itsjava.services.StudentService;
 
 import java.sql.SQLException;
 
@@ -14,27 +16,11 @@ import java.sql.SQLException;
 public class SpringBootJdbcFoundationsApplication {
 
     public static void main(String[] args) throws SQLException {
+
+
         ApplicationContext context = SpringApplication.run(SpringBootJdbcFoundationsApplication.class, args);
-
-
-        StudentDao studentDao = context.getBean(StudentDao.class);
-        System.out.println("studentDao.count() = " + studentDao.count());
-
-        Student student = new Student("San", 33);
-        studentDao.insert(student);
-
-        System.out.println("studentDao.count() = " + studentDao.count());
-
-
-        Student updateStudent = new Student("Ivanov2", 100);
-        updateStudent.setId(1L);
-        studentDao.update(updateStudent);
-
-        System.out.println("studentDao.findById(1L) = " + studentDao.findById(1L));
-
-
-        studentDao.delete(updateStudent);
-        System.out.println("studentDao.count() = " + studentDao.count());
+//
+        context.getBean(StudentService.class).insert(new Student("Uscov", 15,new Faculty(1L, "Android Development")));
         Console.main(args);
     }
 }

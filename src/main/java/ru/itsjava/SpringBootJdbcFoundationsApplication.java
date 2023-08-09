@@ -1,14 +1,11 @@
 package ru.itsjava;
 
-import org.h2.tools.Console;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.ConfigurableApplicationContext;
-import ru.itsjava.dao.StudentDao;
-import ru.itsjava.domain.Faculty;
-import ru.itsjava.domain.Student;
-import ru.itsjava.services.StudentService;
+
+import ru.itsjava.services.AppService;
+
 
 import java.sql.SQLException;
 
@@ -19,8 +16,7 @@ public class SpringBootJdbcFoundationsApplication {
 
 
         ApplicationContext context = SpringApplication.run(SpringBootJdbcFoundationsApplication.class, args);
-//
-        context.getBean(StudentService.class).insert(new Student("Uscov", 15,new Faculty(1L, "Android Development")));
-        Console.main(args);
+        context.getBean(AppService.class).start();
+
     }
 }
